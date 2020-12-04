@@ -15,7 +15,7 @@ Cluster size and instance types are configurable through Terraform variables.
 
 Note that you'll need Terraform v0.12 or newer to run this project.
 
-### Heztber Cloud API Token
+### Hetzner Cloud API Token
 
 Before running the project you'll have to create an access token for Terraform to connect to the Hetzner Cloud API.
 
