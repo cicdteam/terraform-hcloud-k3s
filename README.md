@@ -1,6 +1,6 @@
 # Kubernetes (k3s) Terraform installer for Hetzner Cloud
 
-This Terraform module creates a Kubernetes Cluster on Hetzner Cloud infrastructure running Ubuntu 20.04. The cluster is designed to take advantage of the Hetzbner private network, and is equiped with Hetzner specific cluster enhancements.
+This Terraform module creates a Kubernetes Cluster on Hetzner Cloud infrastructure running Ubuntu 20.04. The cluster is designed to take advantage of the Hetzner private network, and is equiped with Hetzner specific cluster enhancements.
 
 Cluster size and instance types are configurable through Terraform variables.
 
@@ -29,6 +29,10 @@ export TF_VAR_hcloud_token
 Create a `main.tf` file in a new directory with the following contents:
 
 ```hcl
+variable "hcloud_token" {
+  type = string
+}
+
 provider "hcloud" {
   token = var.hcloud_token
 }
