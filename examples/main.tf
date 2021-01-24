@@ -1,3 +1,7 @@
+variable "hcloud_token" {
+  type = string
+}
+
 provider "hcloud" {
   token = var.hcloud_token
 }
@@ -14,7 +18,7 @@ module "cluster" {
   hcloud_token = var.hcloud_token
   ssh_keys     = [hcloud_ssh_key.default.id]
 
-  master_type = cx31
+  master_type = "cx31"
 
   node_groups = {
     "cx41" = 3
