@@ -14,7 +14,7 @@ resource "hcloud_ssh_key" "default" {
 
 module "cluster" {
   source       = "cicdteam/k3s/hcloud"
-  version      = "0.1.1"
+  version      = "0.1.2"
   hcloud_token = var.hcloud_token
   ssh_keys     = [hcloud_ssh_key.default.id]
 
