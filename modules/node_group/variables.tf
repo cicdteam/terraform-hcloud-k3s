@@ -47,3 +47,9 @@ variable "ssh_keys" {
 variable "hcloud_subnet_id" {
   description = "IP Subnet id used to assign internal IP addresses to nodes"
 }
+
+variable "firewall_ids" {
+  description = "A list of firewall IDs to apply on the node_group"
+  type        = list(number)
+  default     = []
+}

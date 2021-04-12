@@ -21,13 +21,14 @@ data "template_file" "master_init" {
 }
 
 resource "hcloud_server" "master" {
-  name        = "${var.cluster_name}-master"
-  datacenter  = var.datacenter
-  image       = var.image
-  server_type = var.node_type
-  ssh_keys    = var.ssh_keys
-  user_data   = data.template_file.master_init.rendered
-  keep_disk   = true
+  name         = "${var.cluster_name}-master"
+  datacenter   = var.datacenter
+  image        = var.image
+  server_type  = var.node_type
+  ssh_keys     = var.ssh_keys
+  user_data    = data.template_file.master_init.rendered
+  keep_disk    = true
+  firewall_ids = var.firewall_ids
 }
 
 resource "hcloud_server_network" "master" {

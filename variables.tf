@@ -17,13 +17,23 @@ variable "image" {
   default     = "ubuntu-20.04"
 }
 
+variable "network_cidr" {
+  description = "CIDR of the private network"
+  default     = "10.0.0.0/8"
+}
+
+variable "subnet_cidr" {
+  description = "CIDR of the private network"
+  default     = "10.0.0.0/24"
+}
+
 variable "master_type" {
   description = "Master node type (size)"
   default     = "cx21" # 2 vCPU, 4 GB RAM, 40 GB Disk space
 }
 
 variable "ssh_keys" {
-  type        = list
+  type        = list(any)
   description = "List of public ssh_key ids"
 }
 
@@ -37,4 +47,16 @@ variable "node_groups" {
   default = {
     "cx21" = 1
   }
+}
+
+variable "master_firewall_ids" {
+  description = "A list of firewall IDs to apply on the master"
+  type        = list(number)
+  default     = []
+}
+
+variable "node_group_firewall_ids" {
+  description = "A list of firewall IDs to apply on the node group servers"
+  type        = list(number)
+  default     = []
 }

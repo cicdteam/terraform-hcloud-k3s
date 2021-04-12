@@ -46,3 +46,9 @@ variable "hcloud_subnet_id" {
 variable "hcloud_network_id" {
   description = "Herzner cloud private network Id"
 }
+
+variable "firewall_ids" {
+  description = "A list of firewall rules to apply"
+  type        = list(number)
+  default     = []
+}

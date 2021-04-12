@@ -9,13 +9,14 @@ data "template_file" "node_init" {
 }
 
 resource "hcloud_server" "node" {
-  count       = var.node_count
-  name        = "${var.cluster_name}-${var.node_type}-${count.index}"
-  server_type = var.node_type
-  datacenter  = var.datacenter
-  image       = var.image
-  ssh_keys    = var.ssh_keys
-  user_data   = data.template_file.node_init.rendered
+  count        = var.node_count
+  name         = "${var.cluster_name}-${var.node_type}-${count.index}"
+  server_type  = var.node_type
+  datacenter   = var.datacenter
+  image        = var.image
+  ssh_keys     = var.ssh_keys
+  user_data    = data.template_file.node_init.rendered
+  firewall_ids = var.firewall_ids
 }
 
 resource "hcloud_server_network" "node" {
