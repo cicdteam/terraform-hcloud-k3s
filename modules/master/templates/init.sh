@@ -34,3 +34,7 @@ kubectl -n kube-system create secret generic hcloud-csi --from-literal=token=${h
 cat <<'EOF' | sudo tee /var/lib/rancher/k3s/server/manifests/hcloud-csi.yaml
 ${csi_manifest}
 EOF
+
+cat <<'EOF' | sudo tee /etc/rancher/k3s/registries.yaml
+${registries}
+EOF

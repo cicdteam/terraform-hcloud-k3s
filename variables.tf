@@ -38,3 +38,8 @@ variable "node_groups" {
     "cx21" = 1
   }
 }
+
+variable "registries" {
+  description = "Contents of /etc/rancher/k3s/registries.yaml file"
+  default = ""
+}

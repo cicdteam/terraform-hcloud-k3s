@@ -17,6 +17,7 @@ data "template_file" "master_init" {
 
     ccm_manifest = data.template_file.ccm_manifest.rendered
     csi_manifest = data.template_file.csi_manifest.rendered
+    registries = var.registries
   }
 }
 

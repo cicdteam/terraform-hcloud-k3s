@@ -5,6 +5,7 @@ data "template_file" "node_init" {
     k3s_channel = var.k3s_channel
 
     master_ipv4 = var.master_ipv4
+    registries = var.registries
   }
 }
 
