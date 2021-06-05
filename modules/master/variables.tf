@@ -46,3 +46,7 @@ variable "hcloud_subnet_id" {
 variable "hcloud_network_id" {
   description = "Herzner cloud private network Id"
 }
+
+variable "registries" {
+  description = "Contents of /etc/rancher/k3s/registries.yaml file"
+}

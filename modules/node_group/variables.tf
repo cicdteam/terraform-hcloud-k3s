@@ -47,3 +47,7 @@ variable "ssh_keys" {
 variable "hcloud_subnet_id" {
   description = "IP Subnet id used to assign internal IP addresses to nodes"
 }
+
+variable "registries" {
+  description = "Contents of /etc/rancher/k3s/registries.yaml file"
+}

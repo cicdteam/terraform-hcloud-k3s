@@ -36,6 +36,7 @@ module "master" {
   k3s_channel = var.k3s_channel
 
   hcloud_token = var.hcloud_token
+  registries = var.registries
 }
 
 module "node_group" {
@@ -51,6 +52,8 @@ module "node_group" {
   k3s_token   = random_string.k3s_token.result
   k3s_channel = var.k3s_channel
 
+  registries = var.registries
+
   for_each   = var.node_groups
   node_type  = each.key
   node_count = each.value
@@ -61,4 +64,3 @@ module "kubeconfig" {
   cluster_name = var.cluster_name
   master_ipv4  = module.master.master_ipv4
 }
-
